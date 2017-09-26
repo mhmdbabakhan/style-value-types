@@ -1,5 +1,5 @@
 {
-  "name": "value-type-handlers",
+  "name": "style-value-types",
   "version": "1.0.0",
   "description": "Parsers, transformers and tests for special value types, eg: %, hex codes etc.",
   "main": "index.js",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Popmotion/value-type-handlers.git"
+    "url": "git+https://github.com/Popmotion/style-value-types.git"
   },
   "keywords": [
     "css",
@@ -28,9 +28,9 @@
   "author": "Matt Perry",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Popmotion/value-type-handlers/issues"
+    "url": "https://github.com/Popmotion/style-value-types/issues"
   },
-  "homepage": "https://github.com/Popmotion/value-type-handlers#readme",
+  "homepage": "https://github.com/Popmotion/style-value-types#readme",
   "devDependencies": {
     "jest": "^20.0.4",
     "ts-jest": "^20.0.10",

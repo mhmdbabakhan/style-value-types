@@ -10,7 +10,8 @@ type Transformer = (v: any) => any;
 type ValueType = {
   test: (v: any) => boolean,
   parse: (v: any) => any,
-  transform: Transformer,
+  transform?: Transformer,
+  createTransformer?: (template: string) => Transformer
   default?: any
 };
 
@@ -123,6 +124,35 @@ export const px = createUnitType('px');
 export const scale: ValueType = {
   ...number,
   default: 1
+};
+
+const FLOAT_REGEX = /(-)?(\d[\d\.]*)/g;
+const generateToken = (token: number) => '${' + token + '}';
+export const complex: ValueType = {
+  test: (v) => {
+    const matches = v.match && v.match(FLOAT_REGEX);
+    return (matches.constructor === Array && matches.length > 1);
+  },
+  parse: (v) => {
+    const parsedValue: { [key: number]: number } = {};
+    v.match(FLOAT_REGEX).forEach((value: string, i: number) => parsedValue[i] = parseFloat(value));
+    return parsedValue;
+  },
+  createTransformer: (prop) => {
+    let counter = 0;
+    const template = prop.replace(FLOAT_REGEX, () => generateToken(counter++));
+
+    return (v: Object) => {
+      let output = template;
+      for (let key in v) {
+        if (v.hasOwnProperty(key)) {
+          output = output.replace(generateToken(key), v[key]);
+        }
+      }
+
+      return output;
+    };
+  }
 };
 
 /*
