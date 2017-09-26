@@ -1,0 +1,50 @@
+{
+  "name": "value-type-handlers",
+  "version": "1.0.0",
+  "description": "Parsers, transformers and tests for special value types, eg: %, hex codes etc.",
+  "main": "index.js",
+  "types": "src/index.d.ts",
+  "files": [
+    "lib",
+    "src/index.d.ts"
+  ],
+  "scripts": {
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts}'",
+    "test": "jest",
+    "prepublish": "npm run lint && tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Popmotion/value-type-handlers.git"
+  },
+  "keywords": [
+    "css",
+    "svg",
+    "hex",
+    "rgba",
+    "hsla"
+  ],
+  "author": "Matt Perry",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Popmotion/value-type-handlers/issues"
+  },
+  "homepage": "https://github.com/Popmotion/value-type-handlers#readme",
+  "devDependencies": {
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.10",
+    "typescript": "^2.4.2"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      ".(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/_tests/.*\\.(ts|tsx|js)$"
+  }
+}
