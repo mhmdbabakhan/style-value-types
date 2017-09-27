@@ -5,9 +5,9 @@
 
  */
 
-type Transformer = (v: any) => any;
+export type Transformer = (v: any) => any;
 
-type ValueType = {
+export type ValueType = {
   test: (v: any) => boolean,
   parse: (v: any) => any,
   transform?: Transformer,
@@ -15,25 +15,25 @@ type ValueType = {
   default?: any
 };
 
-type NumberMap = {
+export type NumberMap = {
   [key: string]: number
 };
 
-type RGBA = {
+export type RGBA = {
   red: number,
   green: number,
   blue: number,
   alpha?: number
 };
 
-type HSLA = {
+export type HSLA = {
   hue: number,
   saturation: number,
   lightness: number,
   alpha?: number
 };
 
-type Color = HSLA | RGBA;
+export type Color = HSLA | RGBA;
 
 /*
 

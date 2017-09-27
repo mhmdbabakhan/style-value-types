@@ -6,12 +6,15 @@
   "types": "src/index.d.ts",
   "files": [
     "lib",
-    "src/index.d.ts"
+    "dist",
+    "src"
   ],
   "scripts": {
     "watch": "tsc -w",
+    "build": "tsc && webpack && npm run measure",
     "lint": "tslint -c tslint.json 'src/**/*.{ts}'",
     "test": "jest",
+    "measure": "gzip -c dist/style-value-types.min.js | wc -c",
     "prepublishOnly": "npm run lint && tsc"
   },
   "repository": {
@@ -34,7 +37,8 @@
   "devDependencies": {
     "jest": "^20.0.4",
     "ts-jest": "^20.0.10",
-    "typescript": "^2.4.2"
+    "typescript": "^2.4.2",
+    "webpack": "^3.0.0"
   },
   "jest": {
     "moduleFileExtensions": [
