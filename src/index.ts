@@ -126,9 +126,9 @@ export const scale: ValueType = {
   default: 1
 };
 
-type TokenMap = { [key: number]: number };
+type TokenMap = { [key: string]: number };
 const FLOAT_REGEX = /(-)?(\d[\d\.]*)/g;
-const generateToken = (token: number) => '${' + token + '}';
+const generateToken = (token: string) => '${' + token + '}';
 export const complex: ValueType = {
   test: (v) => {
     const matches = v.match && v.match(FLOAT_REGEX);
@@ -141,10 +141,11 @@ export const complex: ValueType = {
   },
   createTransformer: (prop: string) => {
     let counter = 0;
-    const template = prop.replace(FLOAT_REGEX, () => generateToken(counter++));
+    const template = prop.replace(FLOAT_REGEX, () => generateToken(`${counter++}`));
 
     return (v: TokenMap) => {
       let output = template;
+
       for (let key in v) {
         if (v.hasOwnProperty(key)) {
           output = output.replace(generateToken(key), v[key].toString());
