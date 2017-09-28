@@ -1,8 +1,8 @@
 {
   "name": "style-value-types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parsers, transformers and tests for special value types, eg: %, hex codes etc.",
-  "main": "index.js",
+  "main": "lib/index.js",
   "types": "src/index.d.ts",
   "files": [
     "lib",
