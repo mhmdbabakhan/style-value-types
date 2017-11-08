@@ -146,7 +146,7 @@ export const complex: ValueType = {
     return (v: TokenMap) => {
       let output = template;
 
-      for (let key in v) {
+      for (const key in v) {
         if (v.hasOwnProperty(key)) {
           output = output.replace(generateToken(key), v[key].toString());
         }
@@ -226,11 +226,11 @@ export const hex = {
       blue: parseInt(b, 16),
       alpha: 1
     };
-  }
+  },
 };
 
-const isRgba = (v: Color): v is RGBA => (<RGBA>v).red !== undefined;
-const isHsla = (v: Color): v is HSLA => (<HSLA>v).hue !== undefined;
+const isRgba = (v: Color): v is RGBA => (v as RGBA).red !== undefined;
+const isHsla = (v: Color): v is HSLA => (v as HSLA).hue !== undefined;
 
 export const color = {
   test: (v: any) => rgba.test(v) || hsla.test(v) || hex.test(v),
@@ -253,5 +253,5 @@ export const color = {
     }
 
     return v;
-  }
+  },
 };
