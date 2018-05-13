@@ -14,7 +14,7 @@ const umd = Object.assign({}, config, {
   output: {
     file: 'dist/style-value-types.js',
     format: 'umd',
-    name: 'style-value-types',
+    name: 'valueTypes',
     exports: 'named'
   },
   plugins: [typescript(noDeclarationConfig)]
