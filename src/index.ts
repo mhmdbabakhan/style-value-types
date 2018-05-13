@@ -48,7 +48,7 @@ const clamp = (min: number, max: number) => (v: number) => Math.max(Math.min(v, 
  *  Returns a function that will check any argument for `term`
  * `contains('needle')('haystack')`
  */
-const contains = (term: string) => (v: string) => (typeof term === 'string' && v.indexOf(term) !== -1);
+const contains = (term: string) => (v: string) => (typeof v === 'string' && v.indexOf(term) !== -1);
 
 const createUnitType = (unit: string): ValueType => ({
   test: contains(unit),
@@ -61,7 +61,7 @@ const createUnitType = (unit: string): ValueType => ({
  *  the first characters in the provided `term`
  * `isFirstChars('needle')('haystack')`
  */
-const isFirstChars = (term: string) => (v: string) => (typeof term === 'string' && v.indexOf(term) === 0);
+const isFirstChars = (term: string) => (v: string) => (typeof v === 'string' && v.indexOf(term) === 0);
 
 /*
   Get value from function string
