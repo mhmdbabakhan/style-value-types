@@ -1,6 +1,6 @@
 {
   "name": "style-value-types",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Parsers, transformers and tests for special value types, eg: %, hex codes etc.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -16,7 +16,7 @@
     "lint": "tslint -c tslint.json 'src/**/*.{ts}'",
     "test": "jest",
     "measure": "gzip -c dist/style-value-types.min.js | wc -c",
-    "prepublishOnly": "npm run lint && tsc"
+    "prepublishOnly": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
