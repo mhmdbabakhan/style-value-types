@@ -2,9 +2,6 @@ import typescript from 'rollup-plugin-typescript2';
 import uglify from 'rollup-plugin-uglify';
 
 const typescriptConfig = { cacheRoot: 'tmp/.rpt2_cache' };
-const es6Config = Object.assign({}, typescriptConfig, {
-  tsconfigOverride: { compilerOptions: { target: 'es6' } }
-});
 
 const config = {
   input: 'src/index.ts'
@@ -33,7 +30,7 @@ const es = Object.assign({}, config, {
     format: 'es',
     exports: 'named'
   },
-  plugins: [typescript(es6Config)]
+  plugins: [typescript(typescriptConfig)]
 });
 
 const cjs = Object.assign({}, config, {
