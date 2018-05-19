@@ -2,8 +2,8 @@ import typescript from 'rollup-plugin-typescript2';
 import uglify from 'rollup-plugin-uglify';
 
 const typescriptConfig = { cacheRoot: 'tmp/.rpt2_cache' };
-const noDeclarationConfig = Object.assign({}, typescriptConfig, {
-  tsconfigOverride: { compilerOptions: { declaration: false } }
+const es6Config = Object.assign({}, typescriptConfig, {
+  tsconfigOverride: { compilerOptions: { target: 'es6' } }
 });
 
 const config = {
@@ -17,14 +17,14 @@ const umd = Object.assign({}, config, {
     name: 'valueTypes',
     exports: 'named'
   },
-  plugins: [typescript(noDeclarationConfig)]
+  plugins: [typescript(typescriptConfig)]
 });
 
 const umdProd = Object.assign({}, umd, {
   output: Object.assign({}, umd.output, {
     file: 'dist/style-value-types.min.js'
   }),
-  plugins: [typescript(noDeclarationConfig), uglify()]
+  plugins: [typescript(typescriptConfig), uglify()]
 });
 
 const es = Object.assign({}, config, {
@@ -33,7 +33,7 @@ const es = Object.assign({}, config, {
     format: 'es',
     exports: 'named'
   },
-  plugins: [typescript(noDeclarationConfig)]
+  plugins: [typescript(es6Config)]
 });
 
 const cjs = Object.assign({}, config, {
